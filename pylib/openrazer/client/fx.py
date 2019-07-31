@@ -893,6 +893,16 @@ class MiscLighting(BaseRazerFX):
         else:
             self._scroll = None
 
+        if self.has('left'):
+            self._left = SingleLed(serial, capabilities, daemon_dbus, 'left')
+        else:
+            self._left = None
+
+        if self.has('right'):
+            self._right = SingleLed(serial, capabilities, daemon_dbus, 'right')
+        else:
+            self._right = None
+
         if self.has('backlight'):
             self._backlight = SingleLed(serial, capabilities, daemon_dbus, 'backlight')
         else:
@@ -905,6 +915,14 @@ class MiscLighting(BaseRazerFX):
     @property
     def scroll_wheel(self):
         return self._scroll
+
+    @property
+    def left(self):
+        return self._left
+
+    @property
+    def right(self):
+        return self._right
 
     @property
     def backlight(self):
