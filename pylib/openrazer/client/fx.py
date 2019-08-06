@@ -722,7 +722,6 @@ class SingleLed(BaseRazerFX):
             raise ValueError("Direction must be WAVE_RIGHT (0x01) or WAVE_LEFT (0x02)")
 
         if self._shas('wave'):
-            # self._lighting_dbus.setWave(direction)
             self._getattr('set#Wave')(direction)
 
             return True
