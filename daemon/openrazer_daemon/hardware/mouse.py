@@ -15,35 +15,6 @@ from openrazer_daemon.dbus_services.dbus_methods.lanceheadte import get_left_bri
     set_left_brightness as _set_left_brightness, set_right_brightness as _set_right_brightness
 
 
-class RazerLanceheadWireless(RazerLanceheadWired):
-    """
-    Class for the Razer Lancehead (Wireless)
-    """
-    USB_PID = 0x005A
-    METHODS = ['set_charge_effect', 'set_charge_colour']
-
-    DEVICE_IMAGE = "https://assets.razerzone.com/eeimages/support/products/1205/1205_lancehead.png"
-
-    # Deprecated - RAZER_URLS be removed in future.
-    RAZER_URLS = {
-        "top_img": "https://assets.razerzone.com/eeimages/support/products/1205/1205_lancehead.png"
-    }
-
-    def __init__(self, *args, **kwargs):
-        super(RazerLanceheadWireless, self).__init__(*args, **kwargs)
-
-        self._battery_manager = _BatteryManager(self, self._device_number, 'Razer Lancehead')
-        self._battery_manager.active = self.config.getboolean('Startup', 'mouse_battery_notifier', fallback=False)
-
-    def _close(self):
-        """
-        Close the key manager
-        """
-        super(RazerLanceheadWireless, self)._close()
-
-        self._battery_manager.close()
-
-
 class RazerLanceheadWired(__RazerDeviceSpecialBrightnessSuspend):
     """
     Class for the Razer Lancehead (Wired)
@@ -110,6 +81,35 @@ class RazerLanceheadWired(__RazerDeviceSpecialBrightnessSuspend):
         _set_left_brightness(self, left_row_brightness)
         _set_right_brightness(self, right_row_brightness)
         self.disable_notify = False
+
+
+class RazerLanceheadWireless(RazerLanceheadWired):
+    """
+    Class for the Razer Lancehead (Wireless)
+    """
+    USB_PID = 0x005A
+    METHODS = ['set_charge_effect', 'set_charge_colour']
+
+    DEVICE_IMAGE = "https://assets.razerzone.com/eeimages/support/products/1205/1205_lancehead.png"
+
+    # Deprecated - RAZER_URLS be removed in future.
+    RAZER_URLS = {
+        "top_img": "https://assets.razerzone.com/eeimages/support/products/1205/1205_lancehead.png"
+    }
+
+    def __init__(self, *args, **kwargs):
+        super(RazerLanceheadWireless, self).__init__(*args, **kwargs)
+
+        self._battery_manager = _BatteryManager(self, self._device_number, 'Razer Lancehead')
+        self._battery_manager.active = self.config.getboolean('Startup', 'mouse_battery_notifier', fallback=False)
+
+    def _close(self):
+        """
+        Close the key manager
+        """
+        super(RazerLanceheadWireless, self)._close()
+
+        self._battery_manager.close()
 
 
 class RazerLanceheadTE(__RazerDeviceSpecialBrightnessSuspend):
