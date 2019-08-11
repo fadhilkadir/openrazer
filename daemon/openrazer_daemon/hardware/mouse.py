@@ -43,6 +43,7 @@ class RazerLanceheadWireless(RazerLanceheadWired):
 
         self._battery_manager.close()
 
+
 class RazerLanceheadWired(__RazerDeviceSpecialBrightnessSuspend):
     """
     Class for the Razer Lancehead (Wired)
