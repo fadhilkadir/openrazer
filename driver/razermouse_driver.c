@@ -2768,12 +2768,12 @@ static int razer_mouse_probe(struct hid_device *hdev, const struct hid_device_id
         case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_effect);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_colour);
-            __attribute__ ((fallthrough));
+            /* fallthrough */
         case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_level);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_status);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_low_threshold);
-            __attribute__ ((fallthrough));
+            /* fallthrough */
         case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_poll_rate);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_dpi);
@@ -2871,7 +2871,7 @@ static int razer_mouse_probe(struct hid_device *hdev, const struct hid_device_id
         case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_effect);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_colour);
-            __attribute__ ((fallthrough));
+            /* fallthrough */
         case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_level);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_charge_status);
@@ -3094,12 +3094,12 @@ static void razer_mouse_disconnect(struct hid_device *hdev)
         case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRELESS:
             device_remove_file(&hdev->dev, &dev_attr_charge_effect);
             device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            __attribute__ ((fallthrough));
+            /* fallthrough */
         case USB_DEVICE_ID_RAZER_LANCEHEAD_WIRED:
             device_remove_file(&hdev->dev, &dev_attr_charge_level);
             device_remove_file(&hdev->dev, &dev_attr_charge_status);
             device_remove_file(&hdev->dev, &dev_attr_charge_low_threshold);
-            __attribute__ ((fallthrough));
+            /* fallthrough */
         case USB_DEVICE_ID_RAZER_LANCEHEAD_TE_WIRED:
             device_remove_file(&hdev->dev, &dev_attr_poll_rate);
             device_remove_file(&hdev->dev, &dev_attr_dpi);
@@ -3197,7 +3197,7 @@ static void razer_mouse_disconnect(struct hid_device *hdev)
         case USB_DEVICE_ID_RAZER_MAMBA_WIRELESS:
             device_remove_file(&hdev->dev, &dev_attr_charge_effect);
             device_remove_file(&hdev->dev, &dev_attr_charge_colour);
-            __attribute__ ((fallthrough));
+            /* fallthrough */
         case USB_DEVICE_ID_RAZER_MAMBA_WIRED:
             device_remove_file(&hdev->dev, &dev_attr_charge_level);
             device_remove_file(&hdev->dev, &dev_attr_charge_status);
